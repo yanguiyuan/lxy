@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.surface-ground{
+    background-color: #f2f4f6;
+}
+.surface-card{
+    background-color: #ffffff;
+}
+.surface-border{
+    background-color: #dee2e6;
+}

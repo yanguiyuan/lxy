@@ -1,0 +1,73 @@
+# from selenium import webdriver
+# from selenium.webdriver.common.keys import Keys
+# from bs4 import BeautifulSoup
+# import time
+#
+# # 替换为你要查询的关键词
+# keyword = 'Python'
+#
+# # 创建 Chrome 浏览器实例
+# browser = webdriver.Edge()
+#
+# # 打开百度指数页面
+# browser.get('https://index.baidu.com')
+#
+# # 等待页面加载完成
+# time.sleep(5)
+#
+# # # 查找搜索框并输入关键词
+# # search_box = browser.find_element_by_css_selector('#schword')
+# # search_box.send_keys(keyword)
+# # search_box.send_keys(Keys.RETURN)
+# #
+# # # 等待搜索结果加载完成
+# # time.sleep(5)
+# #
+# # # 找到“全部指数”选项卡并点击
+# # all_index_tab = browser.find_element_by_css_selector('.nav-tab ul li:nth-child(2)')
+# # all_index_tab.click()
+# #
+# # # 等待数据加载完成
+# # time.sleep(5)
+# #
+# # # 解析页面 HTML，并提取指数数据
+# # html = browser.page_source
+# # soup = BeautifulSoup(html, 'html.parser')
+# # data = soup.select('.searchResult_table tbody tr')[0].select('td')[1].text
+# #
+# # print(data)
+#
+# # 关闭浏览器
+# browser.quit()
+# from selenium import webdriver
+# from selenium.webdriver.common.by import By
+# import time
+
+# driver = webdriver.Edge()
+
+# driver.get('https://index.baidu.com/v2/main/index.html#/trend/yyds?words=yyds')
+
+# element = driver.find_element(By.CSS_SELECTOR, '#search-input-form > input.search-input')
+# element.send_keys('YYDS')
+# element.submit()
+
+# time.sleep(10)
+# driver.quit()
+import requests
+headers={
+    'Cookie':'BIDUPSID=E6C39DDB39FE9D06C7E2FC62F77A6C5B; PSTM=1681878437; BAIDUID=94EF3542ADDE3E4D0EE1350C68593CA1:FG=1; BDORZ=FFFB88E999055A3F8A630C64834BD6D0; H_WISE_SIDS=234020_216839_213345_214798_110085_243877_244715_257289_257586_260233_253022_260335_261707_236312_261868_262914_259308_263344_256419_264339_265008_265030_265053_265140_261036_265299_265350_265648_265713_265852_265862_265881_265312_257015_265276_266370_266398_266827_264769_266757_266188_266743_267068_265886_267087_257442_265368_266160_265776_266565_266967_253528_267345_267288_267066_267373_267385_265825_267432_265615_267293_265563_267415_267558_267564_267847_267789_267713_267898_267910_267925_265636_268044_266420_259081_264353_265999_266714_267171_107316_268322_268487_265969_268566_267031_268708_268731_268030_268878_268846_267761_265986_269027_269022_234295_268934_234208_267538_266805_259643; H_WISE_SIDS_BFESS=234020_216839_213345_214798_110085_243877_244715_257289_257586_260233_253022_260335_261707_236312_261868_262914_259308_263344_256419_264339_265008_265030_265053_265140_261036_265299_265350_265648_265713_265852_265862_265881_265312_257015_265276_266370_266398_266827_264769_266757_266188_266743_267068_265886_267087_257442_265368_266160_265776_266565_266967_253528_267345_267288_267066_267373_267385_265825_267432_265615_267293_265563_267415_267558_267564_267847_267789_267713_267898_267910_267925_265636_268044_266420_259081_264353_265999_266714_267171_107316_268322_268487_265969_268566_267031_268708_268731_268030_268878_268846_267761_265986_269027_269022_234295_268934_234208_267538_266805_259643; H_PS_PSSID=26350; Hm_lvt_d101ea4d2a5c67dab98251f0b5de24dc=1690784890; bdindexid=q444hr9p6rlkscmgqnhmnr32b6; BA_HECTOR=05a184a50k2l84208l2584251icen3r1p; BAIDUID_BFESS=94EF3542ADDE3E4D0EE1350C68593CA1:FG=1; ZFY=gfBlqZrzG8ernucwsWWKtS:BBFriMCRPXsGIin0Hs2Sw:C; PSINO=2; delPer=0; BDRCVFR[kSyA9a8U-kc]=mk3SLVN4HKm; BCLID=9919283032837554066; BCLID_BFESS=9919283032837554066; BDSFRCVID=nQAOJeC62AbrcdRfvU1DJl-m0LmzracTH6f3Hu5sEDNmSKmgYL7gEG0Pyx8g0KuM3JSsogKKLgOTHULF_2uxOjjg8UtVJeC6EG0Ptf8g0f5; BDSFRCVID_BFESS=nQAOJeC62AbrcdRfvU1DJl-m0LmzracTH6f3Hu5sEDNmSKmgYL7gEG0Pyx8g0KuM3JSsogKKLgOTHULF_2uxOjjg8UtVJeC6EG0Ptf8g0f5; H_BDCLCKID_SF=Jn-8oK-hJIt3fP36q4vE-4At-xQ0etJyaR3CBqbvWJ5TMCo6Xt_KjUIE5R39-JQNaDueXp6aQMcxShPC-tnf3RO30-oQWbQUyRca-q6Y3l02VhTae-t2yU_IjljQ54RMW23r0h7mWU5dsxA45J7cM4IseboJLfT-0bc4KKJxbnLWeIJIjjC5e5j-eaKft5nK-I5hW-P8Kb7VbnrhLfnkbfJBD4QabtJbLDcq-CjgWJ4VDDJshJ6K-tt7yajhJMvtJ674KprELhvVeUTsjPJpQT8r2qAOK5OibmDeafObab3vOpRTXpO13fAzBN5thURB2DkO-4bCWJ5TMl5jDh3Mb6ksDMDtqtJHKbDOoDoP; H_BDCLCKID_SF_BFESS=Jn-8oK-hJIt3fP36q4vE-4At-xQ0etJyaR3CBqbvWJ5TMCo6Xt_KjUIE5R39-JQNaDueXp6aQMcxShPC-tnf3RO30-oQWbQUyRca-q6Y3l02VhTae-t2yU_IjljQ54RMW23r0h7mWU5dsxA45J7cM4IseboJLfT-0bc4KKJxbnLWeIJIjjC5e5j-eaKft5nK-I5hW-P8Kb7VbnrhLfnkbfJBD4QabtJbLDcq-CjgWJ4VDDJshJ6K-tt7yajhJMvtJ674KprELhvVeUTsjPJpQT8r2qAOK5OibmDeafObab3vOpRTXpO13fAzBN5thURB2DkO-4bCWJ5TMl5jDh3Mb6ksDMDtqtJHKbDOoDoP; BDUSS=04Y1lHQ05CVEoxTnZEVElEZVBYTXJWSm5JU2xyVjJKQm5oVnpKbHhVWlo5ZTVrRUFBQUFBJCQAAAAAAQAAAAEAAAA0It1V0dW559S0MjEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFlox2RZaMdkRk; SIGNIN_UC=70a2711cf1d3d9b1a82d2f87d633bd8a044080242779x7HPYsq4hOTd%2FG8b0Aj9rZfHDFGlp0VSrGoPqvVS0Igrl%2FNt3DrqTzkeVuTsZiYR0ew6c%2FkM15m3ZuPHzPRVgNfZsb6hTifeIwHjeLCHEOsgpFTHtZKDv85UPfP9sg5E0PxABZSWzolofeD8l0jkCTs4jvIVaLKoFTyZ5nTnzITQ%2FEAFlJbOiWh94PyXSOQ6Z2cudOPXjT2MF1ghcVA5ZiuqaR8NJ%2BVSzFmoVywWBX%2FkhxGwLa6k0II1zbAC5VgdxvIgO4tVA%2BTWa4%2ByR1OV2Krq1zw3JpOwYielN9ruwgUFd7df%2Bn6Xw5%2BnYJnjPSd23970508720157877528534711669589; __cas__rn__=440802427; __cas__st__212=2011e2fa657913e156697542596a90852c8ada8f9e26c710a6ce48085428583dc1c8828910dd3ebbfd5e4e1d; __cas__id__212=47396521; CPTK_212=1768181878; CPID_212=47396521; ab_sr=1.0.1_ZmQwOGFkYTMwOGY2ZDc3NzJlMzg3ZWIwYTE5OGRiODY4ZTQyZGU4NzQ3NGNlN2I0N2NjODkyN2I2OTIwMjU0NWM4MTY0NzUwNmNkMDMxMjM3M2U3ZDAyNjMyMWJkMWFmNDhjNDk0MzAzMDMwMjljNzA1ZTRhNDJlZmNkMjVmNDUzM2IxMzg0OWFhNWYyYTFmOTM1ZmY3OGFlMmNjYWUwOQ==; Hm_lpvt_d101ea4d2a5c67dab98251f0b5de24dc=1690794550; RT="z=1&dm=baidu.com&si=3e5947fa-04da-40e5-9b0c-4c8b262459a7&ss=lkqmv1vc&sl=4&tt=2ft&bcn=https%3A%2F%2Ffclog.baidu.com%2Flog%2Fweirwood%3Ftype%3Dperf"; BDUSS_BFESS=04Y1lHQ05CVEoxTnZEVElEZVBYTXJWSm5JU2xyVjJKQm5oVnpKbHhVWlo5ZTVrRUFBQUFBJCQAAAAAAQAAAAEAAAA0It1V0dW559S0MjEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFlox2RZaMdkRk',
+    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 Edg/115.0.1901.188',
+    'sec-ch-ua-platform':'"Windows"',
+    'Host':'index.baidu.com',
+    'Referer':'https://index.baidu.com/v2/main/index.html',
+    'Sec-Fetch-Dest':'empty',
+    'sec-ch-ua':'"Not/A)Brand";v="99", "Microsoft Edge";v="115", "Chromium";v="115"',
+    'sec-ch-ua-mobile':'?0',
+    'Cipher-Text':'1690725665366_1690794550350_wFVwK0IBMDorxaAuhcj6TvO5atYJkqhiCSAEKYEbUopI9N9MgGf9YnVPSkc0beqZwaAnTvccYURQGkG3wJOqR+2no0RB2TiybtQjRO34BySvkAmfpmYHhyae+fHENE4+0gJ/eKRhf5u3iOTGbb8JP1Kwy68ZnQo4IZi39FKSNrGqBJ2ygLH01etbtK0+ZsjgOVa7qYkAzcgqfG06wSg6N6BRiwJhTqg6Ex5D7bqRIWoFq+6Ay7S4mpUw4tfYX1SJP/PdCIE8Qrpvpo1GnokMjha5xqnuz3j6QQU8Wsz4iVp9SnKWR34NDScppEq80BLZd27sIk4aNANh2FuUsCKd8v3fW3jspBGj2nq/bYHQkM0nuxzGMiNV4OXEmoChBPc5',
+    'Connection':'keep-alive'
+}
+resp=requests.get("https://index.baidu.com/api/FeedSearchApi/getFeedIndex?area=0&word=[[%7B%22name%22:%22yyds%22,%22wordType%22:1%7D]]&startDate=2021-08-04&endDate=2022-09-13",headers=headers)
+print(resp.content)
+#搜索指数和资讯指数
+# https://index.baidu.com/api/SearchApi/index?area=0&word=[[%7B%22name%22:%22yyds%22,%22wordType%22:1%7D]]&startDate=2021-08-04&endDate=2021-09-15
+#https://index.baidu.com/api/FeedSearchApi/getFeedIndex?area=0&word=[[%7B%22name%22:%22yyds%22,%22wordType%22:1%7D]]&startDate=2021-08-04&endDate=2022-09-13

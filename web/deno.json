@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "tail": "cmd /C ls"
+  }
+}

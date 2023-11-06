@@ -1,0 +1,7 @@
+gorm-gen:
+  dal: ./biz/dal
+  model: ./model/dbmodel
+sqlite:
+  dbname: sql/lxy.db
+mysql:
+  dsn: "root:yanguiyuan@tcp(yanguiyuan.cn:3306)/lxy?charset=utf8mb4&parseTime=True&loc=Local&timeout=100s"

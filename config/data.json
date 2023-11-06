@@ -1,0 +1,8 @@
+{
+  "cmd/server/router_gen.go": {
+    "RouterPkgPath": "github.com/yanguiyuan/lxy/internal/router"
+  },
+  "cmd/server/router.go": {
+    "HandlerPkgPath": "github.com/yanguiyuan/lxy/internal/handler"
+  }
+}

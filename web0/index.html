@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--    <style>-->
+<!--        .container {-->
+<!--            max-width: 600px;-->
+<!--            margin: 0 auto;-->
+<!--            padding: 20px;-->
+<!--            text-align: center;-->
+<!--            background: linear-gradient(to bottom, #333, #000);-->
+<!--            color: #fff;-->
+<!--        }-->
+<!--        h1 {-->
+<!--            font-size: 24px;-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+<!--        .word-list {-->
+<!--            list-style: none;-->
+<!--            padding: 0;-->
+<!--            margin: 0;-->
+<!--        }-->
+<!--        .card {-->
+<!--            background-color: #fff;-->
+<!--            color: #333;-->
+<!--            padding: 20px;-->
+<!--            border-radius: 8px;-->
+<!--            margin-bottom: 20px;-->
+<!--            text-align: left; /* 将文本左对齐 */-->
+<!--        }-->
+<!--        .word {-->
+<!--            font-weight: bold;-->
+<!--            font-size: 20px;-->
+<!--            margin-bottom: 10px;-->
+<!--        }-->
+<!--        .tags {-->
+<!--            margin-bottom: 10px;-->
+<!--        }-->
+<!--        .tag {-->
+<!--            padding: 4px 8px;-->
+<!--            border-radius: 4px;-->
+<!--            margin-right: 5px;-->
+<!--            background-color: #6495ed;-->
+<!--            color: #fff;-->
+<!--        }-->
+<!--        .definition {-->
+<!--            font-size: 16px;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="sidebar">-->
+<!--    <ul>-->
+<!--        <li>词汇列表</li>-->
+<!--        <li>添加词汇</li>-->
+<!--    </ul>-->
+<!--</div>-->
+<!--<div class="word-list">-->
+<!--    <h2>词汇列表</h2>-->
+<!--    <div class="search-bar">-->
+<!--        <input type="text" placeholder="搜索词汇">-->
+<!--        <button>搜索</button>-->
+<!--    </div>-->
+<!--    &lt;!&ndash; 这里放置词汇列表的内容 &ndash;&gt;-->
+<!--</div>-->
+<!--<div class="container">-->
+<!--    <h1>词汇列表</h1>-->
+<!--    <ul class="word-list">-->
+<!--        <li>-->
+<!--            <div class="card">-->
+<!--                <div class="word">Apple</div>-->
+<!--                <div class="tags">-->
+<!--                    <span class="tag fruit">水果</span>-->
+<!--                    <span class="tag color">颜色</span>-->
+<!--                </div>-->
+<!--                <div class="definition">Apple is a fruit and it is typically red or green in color.</div>-->
+<!--            </div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <div class="card">-->
+<!--                <div class="word">Car</div>-->
+<!--                <div class="tags">-->
+<!--                    <span class="tag vehicle">交通工具</span>-->
+<!--                </div>-->
+<!--                <div class="definition">A car is a wheeled motor vehicle used for transportation.</div>-->
+<!--            </div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <div class="card">-->
+<!--                <div class="word">Book</div>-->
+<!--                <div class="tags">-->
+<!--                    <span class="tag book">图书</span>-->
+<!--                    <span class="tag education">教育</span>-->
+<!--                </div>-->
+<!--                <div class="definition">A book is a written or printed work consisting of pages glued or sewn together along one side and bound in covers.</div>-->
+<!--            </div>-->
+<!--        </li>-->
+<!--        <li>-->
+<!--            <div class="card">-->
+<!--                <div class="word">Dog</div>-->
+<!--                <div class="tags">-->
+<!--                    <span class="tag animal">动物</span>-->
+<!--                </div>-->
+<!--                <div class="definition">A dog is a domesticated carnivorous mammal that typically has a long snout, an acute sense of smell, and a barking, howling, or whining voice.</div>-->
+<!--            </div>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+<!--<!DOCTYPE html>-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+  <title>侧边栏菜单和内容展示区</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #333, #111);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+ .search-bar {
+      display: flex;
+      align-items: center;
+      width: 400px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 30px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .search-bar input {
+      flex: 1;
+      height: 40px;
+      border: none;
+      outline: none;
+      padding: 0 20px;
+      font-size: 16px;
+    }
+
+    .search-bar button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      outline: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .search-bar button:hover {
+      background-color: #0056b3;
+    }
+    .sidebar {
+      width: 200px;
+      background-color: #222;
+      padding: 20px;
+      float: left;
+    height:100vh
+    }
+
+    .sidebar a {
+      display: block;
+      color: #aaa;
+      text-decoration: none;
+      padding: 10px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #444;
+      color: #fff;
+    }
+
+    .content {
+      margin-left: 220px;
+      padding: 20px;
+    }
+
+    .content h2 {
+      margin-top: 0;
+    }
+
+    .card {
+      background-color: #444;
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card:hover {
+      background-color: #666;
+      color: #fff;
+    }
+
+    .button {
+      background-color: #555;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #777;
+    }
+
+   .tags {
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .tags li {
+      display: inline-block;
+      background-color: #888;
+      color: #fff;
+      padding: 5px 10px;
+      margin-right: 10px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+    
+    .tags li:hover {
+      background-color: #555;
+    }
+    .title {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .title::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, rgba(0, 123, 255, 1), rgba(0, 123, 255, 0));
+    }
+  body {
+			background: linear-gradient(to right, #333, #111);
+			color: #fff;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.dialog-container {
+			display: none;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background: #fff;
+			border-radius: 5px;
+			padding: 20px;
+        color:#000
+		}
+
+		.dialog-title {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		.dialog-input {
+			margin-bottom: 10px;
+		}
+
+		.dialog-checkbox-label {
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		.dialog-button {
+			background: #333;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			padding: 10px 20px;
+			cursor: pointer;
+		}
+
+		.tag-container {
+			display: flex;
+			flex-wrap: wrap;
+			margin-top: 10px;
+		}
+
+		.tag {
+			background: #ccc;
+			color: #333;
+			border-radius: 5px;
+			padding: 5px 10px;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			display: flex;
+			align-items: center;
+		}
+
+		.tag-label {
+			margin-right: 5px;
+		}
+
+		.close-icon {
+			width: 12px;
+			height: 12px;
+			background: #333;
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+		}
+
+		.close-icon::before,
+		.close-icon::after {
+			content: '';
+			width: 6px;
+			height: 2px;
+			background: #fff;
+			position: absolute;
+		}
+
+		.close-icon::before {
+			transform: rotate(45deg);
+		}
+
+		.close-icon::after {
+			transform: rotate(-45deg);
+		}
+
+		.custom-select {
+			position: relative;
+			display: inline-block;
+			width: 200px;
+		}
+
+		.custom-select select {
+			display: none;
+		}
+
+		.select-selected {
+			background-color: #ccc;
+			padding: 5px 10px;
+			display: flex;
+			align-items: center;
+			position: relative;
+			cursor: pointer;
+		}
+
+		.select-selected::after {
+			content: '';
+			border: 6px solid transparent;
+			border-top-color: #333;
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+
+		.select-selected:hover {
+			background-color: #aaa;
+		}
+
+		.select-items {
+			position: absolute;
+			background-color: #f9f9f9;
+			top: 100%;
+			left: 0;
+			right: 0;
+			z-index: 99;
+			display: none;
+			max-height: 200px;
+			overflow: auto;
+		}
+
+		.select-items div {
+			padding: 5px 10px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+		}
+
+		.select-items div:hover {
+			background-color: #aaa;
+		}
+
+		.select-hide {
+			display: none;
+		}
+
+		.select-items.show {
+			display: block;
+		}
+
+  </style>
+  	<script>
+			var closeIcon = '<span class="close-icon"></span>';
+
+		function openDialog() {
+            document.getElementById("dialog").style.display = "block";
+        }
+
+		function closeDialog() {
+            document.getElementById("dialog").style.display = "none";
+        }
+
+		function createTag(text) {
+            var tagContainer = document.getElementById("tag-container");
+            var tag = document.createElement("div");
+            tag.className = "tag";
+            tag.innerHTML = '<span class="tag-label">' + text + '</span>' + closeIcon;
+            tagContainer.appendChild(tag);
+        }
+
+		function removeTag(element) {
+            var tagContainer = document.getElementById("tag-container");
+            var tag = element.parentNode;
+            tagContainer.removeChild(tag);
+        }
+
+		function toggleSelectOptions() {
+            document.getElementById("select-options").classList.toggle("show");
+        }
+
+		function handleOptionSelection(option) {
+            if (option.selected) {
+                createTag(option.text);
+            } else {
+                var tagLabels = document.getElementsByClassName("tag-label");
+                for (var i = 0; i < tagLabels.length; i++) {
+                    if (tagLabels[i].textContent === option.text) {
+                        removeTag(tagLabels[i]);
+                        break;
+                    }
+                }
+            }
+        }
+
+		document.addEventListener("click", function (event) {
+            var selectContainer = document.getElementById("custom-select");
+            if (!selectContainer.contains(event.target)) {
+                document.getElementById("select-options").classList.remove("show");
+            }
+        });
+	</script>
+</head>
+<body>
+  <div class="sidebar">
+    <a href="#">流行语列表</a>
+    <a href="#">添加流行语</a>
+    <a href="#">导入数据</a>
+  </div>
+
+  <div class="content">
+    <h2 class="title">流行语列表</h2>
+
+     <div class="search-bar">
+    <input type="text" placeholder="搜索...">
+    <button type="submit">搜索</button>
+  </div>
+
+    <div class="card">
+      <h3>词汇1</h3>
+      <ul class="tags">
+        <li>标签1</li>
+        <li>标签2</li>
+        <li>标签3</li>
+      </ul>
+      <p>词汇1的解释</p>
+    </div>
+
+    <div class="card">
+      <h3>词汇2</h3>
+      <ul class="tags">
+        <li>标签1</li>
+        <li>标签2</li>
+      </ul>
+      <p>词汇2的解释</p>
+    </div>
+    
+    <button class="button">添加</button>
+<button onclick="openDialog()">Open Dialog</button>
+	<div id="dialog" class="dialog-container">
+		<div class="dialog-title">Dialog Title</div>
+		<div class="dialog-item">
+			<label for="name" class="dialog-input-label">Name:</label>
+			<input type="text" id="name" class="dialog-input" placeholder="Enter your name">
+		</div>
+		<div class="dialog-item">
+			<label for="email" class="dialog-input-label">Email:</label>
+			<input type="email" id="email" class="dialog-input" placeholder="Enter your email">
+		</div>
+		<div class="dialog-item">
+			<label class="dialog-input-label">Interests:</label>
+			<div id="custom-select" class="custom-select">
+				<div class="select-selected" onclick="toggleSelectOptions()">Select</div>
+				<select id="interests-select" class="select-hide" multiple onchange="handleOptionSelection(this.options[this.selectedIndex])">
+					<option value="Interest 1">Interest 1</option>
+					<option value="Interest 2">Interest 2</option>
+					<option value="Interest 3">Interest 3</option>
+				</select>
+				<div id="select-options" class="select-items">
+					<div onclick="handleOptionSelection(this)"><span>Interest 1</span></div>
+					<div onclick="handleOptionSelection(this)"><span>Interest 2</span></div>
+					<div onclick="handleOptionSelection(this)"><span>Interest 3</span></div>
+				</div>
+			</div>
+		</div>
+		<button class="dialog-button" onclick="closeDialog()">Submit</button>
+		<div id="tag-container" class="tag-container"></div>
+	</div>
+</body>
+</html>
+
+
